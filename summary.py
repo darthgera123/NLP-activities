@@ -33,12 +33,12 @@ sentences = sent_tokenize(text)
 sentenceValue = dict()
 
 for sentence in sentences:
-	for word, freq in freqTable.items():
+	for word in freqTable:
 		if word in sentence.lower():
 			if sentence in sentenceValue:
-				sentenceValue[sentence] += freq
+				sentenceValue[sentence] += freqTable[word]
 			else:
-				sentenceValue[sentence] = freq
+				sentenceValue[sentence] = freqTable[word]
 
 
 
