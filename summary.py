@@ -6,6 +6,9 @@ import nltk
 
 # If you get an error uncomment this line and download the necessary libraries
 #nltk.download()
+# Corpus is basically a set of popular words that may be omitted while summarizing. They are called stopwords
+# Tokenizer is basically breaking them into different ones
+# Stemmer is basically a library that does intelligent parsing on words rooting out punctuations
 
 text = "The solution proposed by Dijkstra was to include the third arrangement, also known as the “the interrupt”.  While thecomputer calculates at full speed, a piece of dedicated hardware monitors the outside world for completion signals from communication devices. When a completion is detected, the program under execution is interrupted after thecurrent instruction and in such a way such that it can be resumed at a later moment as if nothing happened, thus instantaneously freeing the central processor for a suddenly more urgent task."
 stemmer = SnowballStemmer("english")
@@ -25,7 +28,7 @@ for word in words:
 		freqTable[word] += 1
 	else:
 		freqTable[word] = 1
-
+# The entire logic is keeping words which have higher frequency while maintaining context. Therefore we dont change the sentence reordering and in a way hash the sentences
 sentences = sent_tokenize(text)
 sentenceValue = dict()
 
